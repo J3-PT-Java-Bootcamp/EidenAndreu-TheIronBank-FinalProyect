@@ -21,19 +21,12 @@ public class Checking {
     private Long id;
 
     Double balance;
-
     Long secretKey;
-
     String user;
-
     Double minimumBalance;
-
     Double penaltyFee;
-
     Double monthlyMaintenanceFee;
-
     Date creationDay;
-
     Status status;
 
     public Checking(Double balance, Long secretKey, String user, Double minimumBalance, Double penaltyFee, Double monthlyMaintenanceFee, Date creationDay, Status status) {
