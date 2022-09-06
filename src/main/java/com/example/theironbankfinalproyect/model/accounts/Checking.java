@@ -1,6 +1,7 @@
 package com.example.theironbankfinalproyect.model.accounts;
 
 import com.example.theironbankfinalproyect.model.users.Status;
+import com.example.theironbankfinalproyect.model.users.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,8 +26,10 @@ public class Checking {
 
     @Column(name = "secret_key")
     Long secretKey;
-    @Column (name = "user")
-    String user;
+
+    @OneToOne
+    @JoinColumn(name = "user", referencedColumnName = "id")
+    User user;
 
     @Column(name = "creation_day")
     Date creationDay;
@@ -38,7 +41,7 @@ public class Checking {
     Double penaltyFee;
     Double monthlyMaintenanceFee;
 
-    public Checking(Double balance, Long secretKey, String user, Double minimumBalance, Double penaltyFee, Double monthlyMaintenanceFee, Date creationDay, Status status) {
+    public Checking(Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Double monthlyMaintenanceFee, Date creationDay, Status status) {
         this.balance = balance;
         this.secretKey = secretKey;
         this.user = user;
@@ -49,14 +52,14 @@ public class Checking {
         this.status = status;
     }
 
-    public Checking(Long id, Double balance, String user, Double penaltyFee) {
+    public Checking(Long id, Double balance, User user, Double penaltyFee) {
         this.id = id;
         this.balance = balance;
         this.user = user;
         this.penaltyFee = penaltyFee;
     }
 
-    public Checking(Long id, Double balance, Long secretKey, String user, Double minimumBalance, Double penaltyFee, Date creationDay, Status status) {
+    public Checking(Long id, Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Date creationDay, Status status) {
         this.id = id;
         this.balance = balance;
         this.secretKey = secretKey;
@@ -67,7 +70,7 @@ public class Checking {
         this.status = status;
     }
 
-    public Checking(Long id, Double balance, Long secretKey, String user, Double penaltyFee, Date creationDay, Status status) {
+    public Checking(Long id, Double balance, Long secretKey, User user, Double penaltyFee, Date creationDay, Status status) {
         this.id = id;
         this.balance = balance;
         this.secretKey = secretKey;
