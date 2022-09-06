@@ -1,9 +1,17 @@
-package com.example.theironbankfinalproyect.accounts;
+package com.example.theironbankfinalproyect.model.accounts;
 
-import com.example.theironbankfinalproyect.users.Status;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.Date;
+import javax.persistence.Entity;
 
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CreditAccount extends Checking{
     public CreditAccount(Long id, Double balance, String user, Double penaltyFee, int creditLimit, double interestRate) {
         super(id, balance, user, penaltyFee);

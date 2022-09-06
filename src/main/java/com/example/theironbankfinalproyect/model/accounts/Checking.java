@@ -1,6 +1,6 @@
-package com.example.theironbankfinalproyect.accounts;
+package com.example.theironbankfinalproyect.model.accounts;
 
-import com.example.theironbankfinalproyect.users.Status;
+import com.example.theironbankfinalproyect.model.users.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,14 +20,23 @@ public class Checking {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "balance")
     Double balance;
+
+    @Column(name = "secret_key")
     Long secretKey;
+    @Column (name = "user")
     String user;
+
+    @Column(name = "creation_day")
+    Date creationDay;
+
+    @Column(name = "status")
+    Status status;
+
     Double minimumBalance;
     Double penaltyFee;
     Double monthlyMaintenanceFee;
-    Date creationDay;
-    Status status;
 
     public Checking(Double balance, Long secretKey, String user, Double minimumBalance, Double penaltyFee, Double monthlyMaintenanceFee, Date creationDay, Status status) {
         this.balance = balance;
