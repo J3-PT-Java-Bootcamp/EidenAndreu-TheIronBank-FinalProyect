@@ -24,7 +24,7 @@ public class Checking {
     private Long id;
 
     @Column(name = "balance")
-    private Double balance;
+    private double balance;
 
     @Column(name = "secret_key")
     private Long secretKey;
@@ -39,9 +39,9 @@ public class Checking {
     @Column(name = "status")
     private Status status;
 
-    private Double minimumBalance;
-    private Double penaltyFee;
-    private Double monthlyMaintenanceFee;
+    private double minimumBalance;
+    private double penaltyFee;
+    private double monthlyMaintenanceFee;
 
     @UpdateTimestamp
     private Instant lastUpdateTime;

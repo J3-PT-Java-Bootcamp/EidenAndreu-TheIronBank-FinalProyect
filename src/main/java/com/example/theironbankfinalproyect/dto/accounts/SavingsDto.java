@@ -6,13 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.time.Instant;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class CheckingDto {
+public class SavingsDto {
     private double balance;
     private Long secretKey;
     private User user;
@@ -20,7 +21,6 @@ public class CheckingDto {
     private Status status;
     private double minimumBalance;
     private double penaltyFee;
-    private double monthlyMaintenanceFee;
     private Instant lastUpdateTime;
-
+    private double interestRate;
 }

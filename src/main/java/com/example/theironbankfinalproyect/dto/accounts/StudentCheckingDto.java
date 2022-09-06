@@ -6,21 +6,20 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.time.Instant;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class CheckingDto {
+public class StudentCheckingDto {
     private double balance;
     private Long secretKey;
     private User user;
     private Instant creationTime;
     private Status status;
-    private double minimumBalance;
     private double penaltyFee;
-    private double monthlyMaintenanceFee;
     private Instant lastUpdateTime;
 
 }
