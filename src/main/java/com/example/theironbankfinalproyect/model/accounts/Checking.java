@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -28,7 +29,7 @@ public class Checking {
     @Column(name = "secret_key")
     Long secretKey;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user", referencedColumnName = "id")
     User user;
 
@@ -41,6 +42,9 @@ public class Checking {
     Double minimumBalance;
     Double penaltyFee;
     Double monthlyMaintenanceFee;
+
+    @UpdateTimestamp
+    private Instant lastUpdateTime;
 
     public Checking(Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Double monthlyMaintenanceFee, Instant creationTime, Status status) {
         this.balance = balance;

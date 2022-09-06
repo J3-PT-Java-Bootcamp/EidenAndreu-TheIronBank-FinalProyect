@@ -1,5 +1,6 @@
 package com.example.theironbankfinalproyect.model.users;
 
+import com.example.theironbankfinalproyect.model.accounts.Checking;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +22,8 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @OneToMany(mappedBy = "user" )
+    List<Checking> checking;
     @Column (name = "name")
     String name;
 
