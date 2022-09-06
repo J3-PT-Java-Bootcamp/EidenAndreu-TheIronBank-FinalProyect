@@ -20,9 +20,9 @@ public class CreditAccount extends Checking{
         this.interestRate = interestRate;
     }
 
-    int creditLimit;
+    private int creditLimit;
 
-    double interestRate;
+    private double interestRate;
 
 
 }

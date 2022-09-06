@@ -24,24 +24,24 @@ public class Checking {
     private Long id;
 
     @Column(name = "balance")
-    Double balance;
+    private Double balance;
 
     @Column(name = "secret_key")
-    Long secretKey;
+    private Long secretKey;
 
     @ManyToOne
     @JoinColumn(name = "user", referencedColumnName = "id")
-    User user;
+    private User user;
 
     @CreationTimestamp
     private Instant creationTime;
 
     @Column(name = "status")
-    Status status;
+    private Status status;
 
-    Double minimumBalance;
-    Double penaltyFee;
-    Double monthlyMaintenanceFee;
+    private Double minimumBalance;
+    private Double penaltyFee;
+    private Double monthlyMaintenanceFee;
 
     @UpdateTimestamp
     private Instant lastUpdateTime;
