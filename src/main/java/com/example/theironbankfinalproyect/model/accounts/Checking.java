@@ -6,9 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.Instant;
 
 @Entity
 @Getter
@@ -31,8 +32,8 @@ public class Checking {
     @JoinColumn(name = "user", referencedColumnName = "id")
     User user;
 
-    @Column(name = "creation_day")
-    Date creationDay;
+    @CreationTimestamp
+    private Instant creationTime;
 
     @Column(name = "status")
     Status status;
@@ -41,14 +42,14 @@ public class Checking {
     Double penaltyFee;
     Double monthlyMaintenanceFee;
 
-    public Checking(Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Double monthlyMaintenanceFee, Date creationDay, Status status) {
+    public Checking(Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Double monthlyMaintenanceFee, Instant creationTime, Status status) {
         this.balance = balance;
         this.secretKey = secretKey;
         this.user = user;
         this.minimumBalance = minimumBalance;
         this.penaltyFee = penaltyFee;
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
-        this.creationDay = creationDay;
+        this.creationTime = creationTime;
         this.status = status;
     }
 
@@ -59,24 +60,24 @@ public class Checking {
         this.penaltyFee = penaltyFee;
     }
 
-    public Checking(Long id, Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Date creationDay, Status status) {
+    public Checking(Long id, Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Instant creationTime, Status status) {
         this.id = id;
         this.balance = balance;
         this.secretKey = secretKey;
         this.user = user;
         this.minimumBalance = minimumBalance;
         this.penaltyFee = penaltyFee;
-        this.creationDay = creationDay;
+        this.creationTime = creationTime;
         this.status = status;
     }
 
-    public Checking(Long id, Double balance, Long secretKey, User user, Double penaltyFee, Date creationDay, Status status) {
+    public Checking(Long id, Double balance, Long secretKey, User user, Double penaltyFee, Instant creationTime, Status status) {
         this.id = id;
         this.balance = balance;
         this.secretKey = secretKey;
         this.user = user;
         this.penaltyFee = penaltyFee;
-        this.creationDay = creationDay;
+        this.creationTime = creationTime;
         this.status = status;
     }
 }

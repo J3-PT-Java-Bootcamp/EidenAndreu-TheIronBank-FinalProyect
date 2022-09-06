@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import java.time.Instant;
 import java.util.Date;
 @Entity
 @Getter
@@ -16,8 +17,8 @@ import java.util.Date;
 @NoArgsConstructor
 
 public class Savings extends Checking{
-    public Savings(Long id, Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Date creationDay, Status status) {
-        super(id, balance, secretKey, user, minimumBalance, penaltyFee, creationDay, status);
+    public Savings(Long id, Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Instant creationTime, Status status) {
+        super(id, balance, secretKey, user, minimumBalance, penaltyFee, creationTime, status);
     }
 
     double interestRate;

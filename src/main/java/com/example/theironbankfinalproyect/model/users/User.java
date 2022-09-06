@@ -19,16 +19,23 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column (name = "name")
     String name;
+
+    @Column(name = "date_of_birth")
     Date dateOfBirth;
 
-    String address;
+    @Embedded
+    Address address;
 
+    @Column(name = "phone_number")
     String phoneNumber;
+
+    @Column(name = "email")
     String email;
     String hashedKey;
 
-    public User(String name, Date dateOfBirth, String address, String phoneNumber, String email, String hashedKey) {
+    public User(String name, Date dateOfBirth, Address address, String phoneNumber, String email, String hashedKey) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
@@ -37,7 +44,7 @@ public class User {
         this.hashedKey = hashedKey;
     }
 
-    public User(String name, Date dateOfBirth, String address, String phoneNumber, String email) {
+    public User(String name, Date dateOfBirth, Address address, String phoneNumber, String email) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.address = address;

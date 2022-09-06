@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 public class AccountHolder extends User{
-    public AccountHolder(String name, Date dateOfBirth, String address, String number, String email) {
+    public AccountHolder(String name, Date dateOfBirth, Address address, String number, String email) {
         super(name, dateOfBirth, address, number, email);
     }
 }
