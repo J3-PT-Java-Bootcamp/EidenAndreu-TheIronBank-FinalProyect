@@ -23,22 +23,22 @@ public class User {
     private Long id;
 
     @OneToMany(mappedBy = "user" )
-    List<Checking> checking;
+    private List<Checking> checking;
     @Column (name = "name")
-    String name;
+    private String name;
 
     @Column(name = "date_of_birth")
-    Date dateOfBirth;
+    private Date dateOfBirth;
 
     @Embedded
-    Address address;
+    private Address address;
 
     @Column(name = "phone_number")
-    String phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "email")
-    String email;
-    String hashedKey;
+    private String email;
+    private String hashedKey;
 
     public User(String name, Date dateOfBirth, Address address, String phoneNumber, String email, String hashedKey) {
         this.name = name;

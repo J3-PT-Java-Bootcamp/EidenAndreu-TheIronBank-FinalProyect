@@ -21,5 +21,5 @@ public class Savings extends Checking{
         super(id, balance, secretKey, user, minimumBalance, penaltyFee, creationTime, status);
     }
 
-    double interestRate;
+    private double interestRate;
 }
