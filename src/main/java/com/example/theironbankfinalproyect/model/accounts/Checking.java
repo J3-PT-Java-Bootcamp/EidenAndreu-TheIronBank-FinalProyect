@@ -17,11 +17,13 @@ import java.time.Instant;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "accounts")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Checking {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private long id;
 
     @Column(name = "balance")
     private double balance;

@@ -1,12 +1,11 @@
 package com.example.theironbankfinalproyect.repository.users;
 
 
+import com.example.theironbankfinalproyect.model.users.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface Admin extends JpaRepository<Admin, Long> {
+public interface AdminRepository extends JpaRepository<Admin, Long> {
 
 }
