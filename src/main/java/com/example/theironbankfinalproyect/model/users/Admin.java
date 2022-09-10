@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 
 public class Admin extends User{
-    public Admin(String name) {
-        super(name);
+    public Admin(Long id, String name) {
+        super(id, name);
     }
 }

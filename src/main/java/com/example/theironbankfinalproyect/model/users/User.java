@@ -16,11 +16,12 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private long id;
 
     @OneToMany(mappedBy = "user" )
     private List<Checking> checking;
@@ -49,7 +50,8 @@ public class User {
         this.hashedKey = hashedKey;
     }
 
-    public User(String name, Date dateOfBirth, Address address, String phoneNumber, String email) {
+    public User(Long id, String name, Date dateOfBirth, Address address, String phoneNumber, String email) {
+        this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
@@ -57,7 +59,8 @@ public class User {
         this.email = email;
     }
 
-    public User(String name) {
+    public User(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 

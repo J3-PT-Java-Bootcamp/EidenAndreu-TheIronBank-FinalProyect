@@ -23,4 +23,6 @@ public class CheckingDto {
     private double monthlyMaintenanceFee;
     private Instant lastUpdateTime;
 
+
+
 }
