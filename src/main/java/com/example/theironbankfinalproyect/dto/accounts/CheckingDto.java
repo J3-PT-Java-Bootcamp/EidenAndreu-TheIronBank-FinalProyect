@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.validation.constraints.Min;
 import java.time.Instant;
 
 @NoArgsConstructor
@@ -13,7 +15,9 @@ import java.time.Instant;
 @Getter
 @Setter
 public class CheckingDto {
+    @Min(200)
     private double balance;
+
     private Long secretKey;
     private User user;
     private Instant creationTime;
