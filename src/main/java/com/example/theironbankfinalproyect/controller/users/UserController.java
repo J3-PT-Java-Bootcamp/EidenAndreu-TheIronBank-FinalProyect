@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/accountHolder")
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
