@@ -1,33 +1,27 @@
-package com.example.theironbankfinalproyect.model.users;
+package com.example.theironbankfinalproyect.model.accounts;
 
-import com.example.theironbankfinalproyect.model.accounts.Checking;
+import com.example.theironbankfinalproyect.model.users.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "accounts")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class User {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "id", nullable = false)
     private long id;
 
-
-
-    @Column (name = "name")
-    private String name;
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "user", referencedColumnName = "id")
+    private User user;
 }

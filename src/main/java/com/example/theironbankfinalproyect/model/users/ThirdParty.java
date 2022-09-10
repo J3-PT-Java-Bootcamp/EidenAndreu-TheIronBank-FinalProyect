@@ -12,7 +12,11 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 public class ThirdParty extends User{
-    public ThirdParty(Long id, String name, String hashedKey) {
-        super(id, name, hashedKey);
+
+    public ThirdParty(long id, String name, String hashedKey) {
+        super(id, name);
+        this.hashedKey = hashedKey;
     }
+
+    private String hashedKey;
 }

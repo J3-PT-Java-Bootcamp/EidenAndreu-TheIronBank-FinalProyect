@@ -17,23 +17,24 @@ import java.time.Instant;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "accounts")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Checking {
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    @Column(name = "id", nullable = false)
-    private long id;
+public class Checking extends Account {
+    public Checking(long id, User user, double balance, Long secretKey, Instant creationTime, Status status, double minimumBalance, double penaltyFee, double monthlyMaintenanceFee, Instant lastUpdateTime) {
+        super(id, user);
+        this.balance = balance;
+        this.secretKey = secretKey;
+        this.creationTime = creationTime;
+        this.status = status;
+        this.minimumBalance = minimumBalance;
+        this.penaltyFee = penaltyFee;
+        this.monthlyMaintenanceFee = monthlyMaintenanceFee;
+        this.lastUpdateTime = lastUpdateTime;
+    }
 
     @Column(name = "balance")
     private double balance;
 
     @Column(name = "secret_key")
     private Long secretKey;
-
-    @ManyToOne
-    @JoinColumn(name = "user", referencedColumnName = "id")
-    private User user;
 
     @CreationTimestamp
     private Instant creationTime;
@@ -48,42 +49,4 @@ public class Checking {
     @UpdateTimestamp
     private Instant lastUpdateTime;
 
-    public Checking(Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Double monthlyMaintenanceFee, Instant creationTime, Status status) {
-        this.balance = balance;
-        this.secretKey = secretKey;
-        this.user = user;
-        this.minimumBalance = minimumBalance;
-        this.penaltyFee = penaltyFee;
-        this.monthlyMaintenanceFee = monthlyMaintenanceFee;
-        this.creationTime = creationTime;
-        this.status = status;
-    }
-
-    public Checking(Long id, Double balance, User user, Double penaltyFee) {
-        this.id = id;
-        this.balance = balance;
-        this.user = user;
-        this.penaltyFee = penaltyFee;
-    }
-
-    public Checking(Long id, Double balance, Long secretKey, User user, Double minimumBalance, Double penaltyFee, Instant creationTime, Status status) {
-        this.id = id;
-        this.balance = balance;
-        this.secretKey = secretKey;
-        this.user = user;
-        this.minimumBalance = minimumBalance;
-        this.penaltyFee = penaltyFee;
-        this.creationTime = creationTime;
-        this.status = status;
-    }
-
-    public Checking(Long id, Double balance, Long secretKey, User user, Double penaltyFee, Instant creationTime, Status status) {
-        this.id = id;
-        this.balance = balance;
-        this.secretKey = secretKey;
-        this.user = user;
-        this.penaltyFee = penaltyFee;
-        this.creationTime = creationTime;
-        this.status = status;
-    }
 }
