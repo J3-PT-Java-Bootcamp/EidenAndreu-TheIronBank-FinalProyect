@@ -3,6 +3,7 @@ package com.example.theironbankfinalproyect.model.users;
 import com.example.theironbankfinalproyect.model.accounts.Checking;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -15,6 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class AccountHolder extends User{
 
     public AccountHolder(long id,  String name, Date dateOfBirth, Address address, String phoneNumber, String email, String hashedKey) {
