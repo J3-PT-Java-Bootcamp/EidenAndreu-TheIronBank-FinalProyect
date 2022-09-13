@@ -10,8 +10,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.List;
 
 @Entity
 @Getter
@@ -20,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 public class StudentChecking extends Account{
 
-    public StudentChecking(long id, User user, double balance, Long secretKey, Instant creationTime, Status status, double penaltyFee, Instant lastUpdateTime) {
+    public StudentChecking(long id, User user, BigDecimal balance, Long secretKey, Instant creationTime, Status status, BigDecimal penaltyFee, Instant lastUpdateTime) {
         super(id, user);
         this.balance = balance;
         this.secretKey = secretKey;
@@ -31,7 +31,7 @@ public class StudentChecking extends Account{
     }
 
     @Column(name = "balance")
-    private double balance;
+    private BigDecimal balance;
 
     @Column(name = "secret_key")
     private Long secretKey;
@@ -42,7 +42,7 @@ public class StudentChecking extends Account{
     @Column(name = "status")
     private Status status;
 
-    private double penaltyFee;
+    private BigDecimal penaltyFee;
 
     @UpdateTimestamp
     private Instant lastUpdateTime;
