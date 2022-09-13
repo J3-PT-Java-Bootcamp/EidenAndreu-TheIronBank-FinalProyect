@@ -11,8 +11,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.Date;
+
 @Entity
 @Getter
 @Setter
@@ -21,7 +22,7 @@ import java.util.Date;
 
 public class Savings extends Account{
 
-    public Savings(long id, User user, double balance, Long secretKey, Instant creationTime, Status status, double minimumBalance, double penaltyFee, Instant lastUpdateTime, double interestRate) {
+    public Savings(long id, User user, BigDecimal balance, Long secretKey, Instant creationTime, Status status, BigDecimal minimumBalance, BigDecimal penaltyFee, Instant lastUpdateTime, BigDecimal interestRate) {
         super(id, user);
         this.balance = balance;
         this.secretKey = secretKey;
@@ -34,7 +35,7 @@ public class Savings extends Account{
     }
 
     @Column(name = "balance")
-    private double balance;
+    private BigDecimal balance;
 
     @Column(name = "secret_key")
     private Long secretKey;
@@ -45,14 +46,14 @@ public class Savings extends Account{
     @Column(name = "status")
     private Status status;
 
-    private double minimumBalance;
-    private double penaltyFee;
+    private BigDecimal minimumBalance;
+    private BigDecimal penaltyFee;
 
     @UpdateTimestamp
     private Instant lastUpdateTime;
 
     @Column (name="interestRate")
-    private double interestRate;
+    private BigDecimal interestRate;
 
 
 }
