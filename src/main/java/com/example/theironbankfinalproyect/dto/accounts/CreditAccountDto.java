@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.time.Instant;
 
 @NoArgsConstructor
@@ -20,6 +22,8 @@ public class CreditAccountDto {
     private Status status;
     private double penaltyFee;
     private Instant lastUpdateTime;
+
     private int creditLimit;
+
     private double interestRate;
 }
