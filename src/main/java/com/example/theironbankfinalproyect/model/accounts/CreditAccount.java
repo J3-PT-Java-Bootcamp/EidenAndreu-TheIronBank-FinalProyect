@@ -1,5 +1,7 @@
 package com.example.theironbankfinalproyect.model.accounts;
 
+import com.example.theironbankfinalproyect.model.Money;
+import com.example.theironbankfinalproyect.model.users.AccountHolder;
 import com.example.theironbankfinalproyect.model.users.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
 
@@ -16,16 +19,13 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreditAccount extends Account{
-    public CreditAccount(long id, User user, BigDecimal balance, BigDecimal creditLimit, BigDecimal interestRate, BigDecimal penaltyFee) {
-        super(id, user);
-        this.balance = balance;
+
+    public CreditAccount(AccountHolder primaryOwner, AccountHolder secondaryOwner, Money balance, BigDecimal creditLimit, BigDecimal interestRate, BigDecimal penaltyFee) {
+        super(primaryOwner, secondaryOwner, balance);
         this.creditLimit = creditLimit;
         this.interestRate = interestRate;
         this.penaltyFee = penaltyFee;
     }
-
-    @Column(name = "balance")
-    private BigDecimal balance;
 
     @Column(name = "creditLimit")
     private BigDecimal creditLimit;

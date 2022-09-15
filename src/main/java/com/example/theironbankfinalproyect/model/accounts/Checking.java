@@ -1,5 +1,7 @@
 package com.example.theironbankfinalproyect.model.accounts;
 
+import com.example.theironbankfinalproyect.model.Money;
+import com.example.theironbankfinalproyect.model.users.AccountHolder;
 import com.example.theironbankfinalproyect.model.users.Status;
 import com.example.theironbankfinalproyect.model.users.User;
 import lombok.AllArgsConstructor;
@@ -19,9 +21,8 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Checking extends Account {
-    public Checking(long id, User user, BigDecimal balance, Long secretKey, Instant creationTime, Status status, BigDecimal minimumBalance, BigDecimal penaltyFee, BigDecimal monthlyMaintenanceFee, Instant lastUpdateTime) {
-        super(id, user);
-        this.balance = balance;
+    public Checking(AccountHolder primaryOwner, AccountHolder secondaryOwner, Money balance, Long secretKey, Instant creationTime, Status status, BigDecimal minimumBalance, BigDecimal penaltyFee, BigDecimal monthlyMaintenanceFee, Instant lastUpdateTime) {
+        super(primaryOwner, secondaryOwner, balance);
         this.secretKey = secretKey;
         this.creationTime = creationTime;
         this.status = status;
@@ -30,9 +31,6 @@ public class Checking extends Account {
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
         this.lastUpdateTime = lastUpdateTime;
     }
-
-    @Column(name = "balance")
-    private BigDecimal balance;
 
     @Column(name = "secret_key")
     private Long secretKey;

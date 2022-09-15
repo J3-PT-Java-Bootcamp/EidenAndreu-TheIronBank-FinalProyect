@@ -22,6 +22,6 @@ public class Admin extends User{
         this.checking = checking;
     }
 
-    @OneToMany(mappedBy = "user" )
+    @OneToMany(mappedBy = "primaryOwner" )
     private List<Checking> checking;
 }
