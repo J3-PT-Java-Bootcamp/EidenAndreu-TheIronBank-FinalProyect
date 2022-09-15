@@ -1,15 +1,13 @@
 package com.example.theironbankfinalproyect.model.accounts;
 
-import com.example.theironbankfinalproyect.model.Money;
+import com.example.theironbankfinalproyect.utils.Money;
 import com.example.theironbankfinalproyect.model.users.AccountHolder;
-import com.example.theironbankfinalproyect.model.users.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
 

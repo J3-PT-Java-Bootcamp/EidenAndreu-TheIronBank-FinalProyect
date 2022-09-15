@@ -1,11 +1,10 @@
-package com.example.theironbankfinalproyect.model;
+package com.example.theironbankfinalproyect.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.math.RoundingMode;
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -21,6 +20,7 @@ public class Money {
 
     private final Currency currency;
     private BigDecimal amount;
+
 
     /**
      * Class constructor specifying amount, currency, and rounding

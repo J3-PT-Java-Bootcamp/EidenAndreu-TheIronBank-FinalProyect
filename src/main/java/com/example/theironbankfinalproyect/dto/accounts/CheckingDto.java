@@ -1,6 +1,6 @@
 package com.example.theironbankfinalproyect.dto.accounts;
 
-import com.example.theironbankfinalproyect.model.Money;
+import com.example.theironbankfinalproyect.utils.Money;
 import com.example.theironbankfinalproyect.model.users.Status;
 import com.example.theironbankfinalproyect.model.users.User;
 import lombok.AllArgsConstructor;
