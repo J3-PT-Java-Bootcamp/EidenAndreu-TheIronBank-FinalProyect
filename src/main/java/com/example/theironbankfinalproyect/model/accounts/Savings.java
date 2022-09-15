@@ -1,9 +1,8 @@
 package com.example.theironbankfinalproyect.model.accounts;
 
-import com.example.theironbankfinalproyect.model.Money;
+import com.example.theironbankfinalproyect.utils.Money;
 import com.example.theironbankfinalproyect.model.users.AccountHolder;
 import com.example.theironbankfinalproyect.model.users.Status;
-import com.example.theironbankfinalproyect.model.users.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.time.Instant;
