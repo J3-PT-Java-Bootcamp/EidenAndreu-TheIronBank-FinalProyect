@@ -1,5 +1,7 @@
 package com.example.theironbankfinalproyect.model.accounts;
 
+import com.example.theironbankfinalproyect.model.Money;
+import com.example.theironbankfinalproyect.model.users.AccountHolder;
 import com.example.theironbankfinalproyect.model.users.Status;
 import com.example.theironbankfinalproyect.model.users.User;
 import lombok.AllArgsConstructor;
@@ -10,6 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -22,9 +25,8 @@ import java.time.Instant;
 
 public class Savings extends Account{
 
-    public Savings(long id, User user, BigDecimal balance, Long secretKey, Instant creationTime, Status status, BigDecimal minimumBalance, BigDecimal penaltyFee, Instant lastUpdateTime, BigDecimal interestRate) {
-        super(id, user);
-        this.balance = balance;
+    public Savings(AccountHolder primaryOwner, AccountHolder secondaryOwner, Money balance, Long secretKey, Instant creationTime, Status status, BigDecimal minimumBalance, BigDecimal penaltyFee, Instant lastUpdateTime, BigDecimal interestRate) {
+        super(primaryOwner, secondaryOwner, balance);
         this.secretKey = secretKey;
         this.creationTime = creationTime;
         this.status = status;
@@ -33,9 +35,6 @@ public class Savings extends Account{
         this.lastUpdateTime = lastUpdateTime;
         this.interestRate = interestRate;
     }
-
-    @Column(name = "balance")
-    private BigDecimal balance;
 
     @Column(name = "secret_key")
     private Long secretKey;

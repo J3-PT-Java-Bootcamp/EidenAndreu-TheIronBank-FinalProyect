@@ -1,14 +1,17 @@
 package com.example.theironbankfinalproyect.model.users;
 
-import com.example.theironbankfinalproyect.model.accounts.Checking;
+import com.example.theironbankfinalproyect.model.accounts.Account;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jboss.resteasy.spi.touri.MappedBy;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.Date;
 import java.util.List;
 
@@ -40,4 +43,12 @@ public class AccountHolder extends User{
     @Column(name = "email")
     private String email;
     private String hashedKey;
+
+    @OneToMany(mappedBy = "primaryOwner")
+    @JsonIgnore
+    private List<Account> primaryAccountList;
+
+    @OneToMany(mappedBy = "secondaryOwner")
+   // @JsonIgnore
+    private List<Account> secondaryAccountList;
 }
