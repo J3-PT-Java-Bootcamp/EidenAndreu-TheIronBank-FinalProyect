@@ -32,4 +32,6 @@ public class AccountController {
         var accounts = accountService.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(accounts);
     }
+
 }
+
