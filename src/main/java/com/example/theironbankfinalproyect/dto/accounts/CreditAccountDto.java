@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -16,14 +18,21 @@ import java.time.Instant;
 @Getter
 @Setter
 public class CreditAccountDto {
+
+    @DecimalMax("100")
     private Money balance;
+
     private User user;
     private Instant creationTime;
     private Status status;
-    private BigDecimal penaltyFee;
+    private BigDecimal penaltyFee = BigDecimal.valueOf(40);
     private Instant lastUpdateTime;
 
+    @DecimalMin("100")
+    @DecimalMax("100_000")
     private int creditLimit;
 
+    @DecimalMin("0.1")
+    @DecimalMax("0.2")
     private BigDecimal interestRate;
 }

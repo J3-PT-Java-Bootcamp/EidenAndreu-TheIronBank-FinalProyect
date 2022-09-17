@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.DecimalMin;
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -17,17 +18,20 @@ import java.time.Instant;
 @Setter
 public class CheckingDto {
     private Money balance;
-// cambiar double por Money y BigDecimal
     private Long secretKey;
+
+
     private User user;
     private Instant creationTime;
     private Status status;
 
-    private double minimumBalance;
+    @DecimalMin("250")
+    private Money minimumBalance;
 
-   // @DecimalMin(0.75)
-    private BigDecimal penaltyFee;
-    private BigDecimal monthlyMaintenanceFee;
+
+    private BigDecimal penaltyFee = BigDecimal.valueOf(40);
+
+    private BigDecimal monthlyMaintenanceFee = BigDecimal.valueOf(12);
     private Instant lastUpdateTime;
 
 

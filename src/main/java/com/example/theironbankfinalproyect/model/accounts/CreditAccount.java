@@ -32,7 +32,7 @@ public class CreditAccount extends Account{
     private BigDecimal interestRate;
 
     @Column(name = "PenaltyFee")
-    private BigDecimal penaltyFee;
+    private BigDecimal penaltyFee = BigDecimal.valueOf(40);
 
 
 }

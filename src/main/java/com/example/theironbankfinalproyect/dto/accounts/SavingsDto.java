@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -16,13 +19,23 @@ import java.time.Instant;
 @Getter
 @Setter
 public class SavingsDto {
+
+    @DecimalMax("1000")
+    @DecimalMin("100")
     private Money balance;
+
     private Long secretKey;
     private User user;
     private Instant creationTime;
     private Status status;
+
+    @DecimalMax("1000")
     private BigDecimal minimumBalance;
-    private BigDecimal penaltyFee;
+
+    private BigDecimal penaltyFee = BigDecimal.valueOf(40);
     private Instant lastUpdateTime;
+
+    @DecimalMax("0.5")
+    @DecimalMin("0.0025")
     private BigDecimal interestRate;
 }
