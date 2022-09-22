@@ -53,4 +53,8 @@ public class Savings extends Account{
     private BigDecimal interestRate;
 
 
+    public Savings(AccountHolder primaryOwner, Money balance, Instant creationTime) {
+        super(primaryOwner, balance);
+        this.creationTime = creationTime;
+    }
 }

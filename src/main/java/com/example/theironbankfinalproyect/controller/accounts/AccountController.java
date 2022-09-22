@@ -27,7 +27,7 @@ public class AccountController {
 
     @PostMapping ("/createAccount")
     ResponseEntity<Account> createAccount(@RequestBody Account account){
-        Account createdAccount = accountService.createAccount(account.getId(),account.getPrimaryOwner(), Optional.of(account.getSecondaryOwner()), account.getBalance());
+        Account createdAccount = accountService.createAccount(account.getId(),account.getAccountType(),account.getPrimaryOwner(), Optional.of(account.getSecondaryOwner()), account.getBalance());
         return ResponseEntity.ok(createdAccount);
     }
 

@@ -31,6 +31,11 @@ public class Checking extends Account {
         this.lastUpdateTime = lastUpdateTime;
     }
 
+    public Checking(AccountHolder primaryOwner, Money balance, Instant creationTime) {
+        super(primaryOwner, balance);
+        this.creationTime = creationTime;
+    }
+
     @Column(name = "secret_key")
     private Long secretKey;
 

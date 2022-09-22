@@ -44,4 +44,8 @@ public class StudentChecking extends Account{
     @UpdateTimestamp
     private Instant lastUpdateTime;
 
+    public StudentChecking(AccountHolder primaryOwner, Money balance, Instant creationTime) {
+        super(primaryOwner, balance);
+        this.creationTime = creationTime;
+    }
 }

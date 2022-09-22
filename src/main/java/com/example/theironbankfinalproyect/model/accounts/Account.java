@@ -22,12 +22,14 @@ public class Account {
         this.primaryOwner = primaryOwner;
         this.secondaryOwner = secondaryOwner;
         this.balance = balance;
-    }
+}
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "id", nullable = false)
     private long id;
+
+    private AccountType accountType;
 
     @ManyToOne
     @JoinColumn(name = "primary_owner", referencedColumnName = "id")
@@ -42,4 +44,8 @@ public class Account {
     private Money balance;
 
 
+    public Account(AccountHolder primaryOwner, Money balance) {
+        this.primaryOwner = primaryOwner;
+        this.balance = balance;
+    }
 }

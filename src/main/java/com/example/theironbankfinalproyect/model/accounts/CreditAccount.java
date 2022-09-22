@@ -6,10 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
+import java.time.Instant;
 
 @Entity
 @Getter
@@ -24,7 +26,8 @@ public class CreditAccount extends Account{
         this.interestRate = interestRate;
         this.penaltyFee = penaltyFee;
     }
-
+    @CreationTimestamp
+    private Instant creationTime;
     @Column(name = "creditLimit")
     private BigDecimal creditLimit;
 
@@ -35,4 +38,8 @@ public class CreditAccount extends Account{
     private BigDecimal penaltyFee = BigDecimal.valueOf(40);
 
 
+    public CreditAccount(AccountHolder primaryOwner, Money balance, Instant creationTime) {
+        super(primaryOwner, balance);
+        this.creationTime = creationTime;
+    }
 }
