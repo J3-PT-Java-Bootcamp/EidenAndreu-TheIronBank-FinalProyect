@@ -52,7 +52,7 @@ public class KeycloakAdminClientService {
         kcUser.setEmailVerified(false);
 
 //        Change this to change the group logic
-        kcUser.setGroups(List.of("user", "admin", "accountHolder", "thirdParty"));
+        kcUser.setGroups(List.of("admins"));
 
 
         Response response = usersResource.create(kcUser);
