@@ -12,6 +12,7 @@ public interface CheckingService {
     List<Checking> findAll();
 
     Checking newChecking(long secretKey, Instant creationTime, Money balance);
+
     Checking findById(Long id);
 
     Checking save(Checking checking);
