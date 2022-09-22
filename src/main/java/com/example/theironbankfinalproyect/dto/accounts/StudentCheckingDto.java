@@ -21,7 +21,7 @@ public class StudentCheckingDto {
     private User user;
     private Instant creationTime;
     private Status status;
-    private BigDecimal penaltyFee;
+    private BigDecimal penaltyFee = BigDecimal.valueOf(40);
     private Instant lastUpdateTime;
 
 }

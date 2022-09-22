@@ -52,13 +52,13 @@ public class KeycloakAdminClientService {
         kcUser.setEmailVerified(false);
 
 //        Change this to change the group logic
-        kcUser.setGroups(List.of("members"));
+        kcUser.setGroups(List.of("admins"));
 
 
         Response response = usersResource.create(kcUser);
 
         if (response.getStatus() == 201) {
-            List<UserRepresentation> userList = adminKeycloak.realm(realm).users().search(kcUser.getUsername(), null, null).stream()
+            List<UserRepresentation> userList = adminKeycloak.realm(realm).users().search(kcUser.getUsername()).stream()
                     .filter(userRep -> userRep.getUsername().equals(kcUser.getUsername())).toList();
             var createdUser = userList.get(0);
             log.info("User with id: " + createdUser.getId() + " created");
