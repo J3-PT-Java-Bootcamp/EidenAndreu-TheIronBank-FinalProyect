@@ -4,12 +4,10 @@ import com.example.theironbankfinalproyect.model.accounts.Account;
 import com.example.theironbankfinalproyect.service.accounts.AccountService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/account")
@@ -25,6 +23,12 @@ public class AccountController {
     ResponseEntity<Account> findById(@PathVariable Long id){
         Account account = accountService.findById(id);
         return ResponseEntity.ok(account);
+    }
+
+    @PostMapping ("/createAccount")
+    ResponseEntity<Account> createAccount(@RequestBody Account account){
+        Account createdAccount = accountService.createAccount(account.getId(),account.getPrimaryOwner(), Optional.of(account.getSecondaryOwner()), account.getBalance());
+        return ResponseEntity.ok(createdAccount);
     }
 
     @GetMapping
