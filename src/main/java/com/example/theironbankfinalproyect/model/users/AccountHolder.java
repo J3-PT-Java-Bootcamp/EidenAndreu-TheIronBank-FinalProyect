@@ -51,4 +51,8 @@ public class AccountHolder extends User{
     @OneToMany(mappedBy = "secondaryOwner")
    // @JsonIgnore
     private List<Account> secondaryAccountList;
+
+    public AccountHolder(long id, String name) {
+        super(id, name);
+    }
 }

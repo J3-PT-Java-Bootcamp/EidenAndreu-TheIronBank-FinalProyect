@@ -18,4 +18,8 @@ public class ThirdParty extends User{
     }
 
     private String hashedKey;
+
+    public ThirdParty(long id, String name) {
+        super(id, name);
+    }
 }

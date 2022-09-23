@@ -1,12 +1,31 @@
 package com.example.theironbankfinalproyect.service.users;
 
-import com.example.theironbankfinalproyect.model.users.User;
+
+import com.example.theironbankfinalproyect.model.users.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+        @Override
+    public User createUser(Long id, String name, UserType userType) {
+            switch (userType) {
+                case ADMIN:
+                    Admin adminAccount = new Admin(id, name);
+                    break;
+                case THIRDPARTY:
+                    ThirdParty thirdPartyAccount = new ThirdParty(id, name);
+                    break;
+                case ACCOUNTHOLDER:
+                    AccountHolder accountHolderAccount = new AccountHolder(id, name);
+                    break;
+
+            }
+            return null;
+        }
+
     @Override
     public List<User> findAll() {
         return null;

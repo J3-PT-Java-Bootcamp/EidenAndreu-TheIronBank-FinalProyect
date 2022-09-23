@@ -22,6 +22,13 @@ public class Admin extends User{
         this.checking = checking;
     }
 
+    public Admin(long id, String name) {
+        super(id, name);
+    }
+
     @OneToMany(mappedBy = "primaryOwner" )
     private List<Checking> checking;
+
+
+
 }

@@ -35,6 +35,7 @@ public class AccountServiceImpl implements AccountService {
                 StudentChecking studentChecking = new StudentChecking(primaryOwner, balance, Instant.now());
                 break;
             default:
+                System.out.println("You must select one account type");
                 break;
         }
 

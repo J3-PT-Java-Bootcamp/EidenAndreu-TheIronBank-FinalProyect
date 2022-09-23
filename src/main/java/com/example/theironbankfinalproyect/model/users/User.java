@@ -20,11 +20,19 @@ public class User {
     @Column(name = "id", nullable = false)
     private long id;
 
-
-
     @Column (name = "name")
     private String name;
 
+    private UserType userType;
 
 
+    public User(String name, UserType userType) {
+        this.name = name;
+        this.userType = userType;
+    }
+
+    public User(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
