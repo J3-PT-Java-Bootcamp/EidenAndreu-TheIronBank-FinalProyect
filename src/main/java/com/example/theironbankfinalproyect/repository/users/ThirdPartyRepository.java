@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface ThirdPartyRepository extends JpaRepository<ThirdParty, Long> {
     List<ThirdParty> findAllById (Long id);
+
 }

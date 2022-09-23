@@ -26,6 +26,10 @@ public class Admin extends User{
         super(id, name);
     }
 
+    public Admin(String name) {
+        super(name);
+    }
+
     @OneToMany(mappedBy = "primaryOwner" )
     private List<Checking> checking;
 

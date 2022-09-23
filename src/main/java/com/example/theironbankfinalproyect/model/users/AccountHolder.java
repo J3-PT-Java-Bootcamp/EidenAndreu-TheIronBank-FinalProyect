@@ -55,4 +55,8 @@ public class AccountHolder extends User{
     public AccountHolder(long id, String name) {
         super(id, name);
     }
+
+    public AccountHolder(String name) {
+        super(name);
+    }
 }

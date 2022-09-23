@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private long id;
 
@@ -33,6 +33,10 @@ public class User {
 
     public User(long id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    public User(String name) {
         this.name = name;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.theironbankfinalproyect.model.users;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,10 +17,13 @@ public class ThirdParty extends User{
         super(id, name);
         this.hashedKey = hashedKey;
     }
-
     private String hashedKey;
 
     public ThirdParty(long id, String name) {
         super(id, name);
+    }
+
+    public ThirdParty(String name) {
+        super(name);
     }
 }

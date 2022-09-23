@@ -13,13 +13,13 @@ public class UserServiceImpl implements UserService {
     public User createUser(Long id, String name, UserType userType) {
             switch (userType) {
                 case ADMIN:
-                    Admin adminAccount = new Admin(id, name);
+                    Admin adminAccount = new Admin(name);
                     break;
                 case THIRDPARTY:
-                    ThirdParty thirdPartyAccount = new ThirdParty(id, name);
+                    ThirdParty thirdPartyAccount = new ThirdParty(name);
                     break;
                 case ACCOUNTHOLDER:
-                    AccountHolder accountHolderAccount = new AccountHolder(id, name);
+                    AccountHolder accountHolderAccount = new AccountHolder(name);
                     break;
 
             }
